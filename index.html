@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#0a0a0f">
+<title>Standoff Mini 3D</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="rotate-hint">
+    <div class="phone"></div>
+    <h2>ПОВЕРНИТЕ ТЕЛЕФОН</h2>
+    <p>Только горизонтальная ориентация</p>
+</div>
+
+<div id="menu">
+    <div id="fs-toggle-btn"><svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></div>
+    <div id="menu-top">
+        <div id="sidebar">
+            <div class="side-icon active" data-tab="maps"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+            <div class="side-icon" data-tab="inventory"><svg viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg></div>
+            <div class="side-icon" data-tab="cases"><svg viewBox="0 0 24 24"><path d="M20 6h-2.18c.11-.31.18-.65.18-1 0-1.66-1.34-3-3-3-1.05 0-1.96.54-2.5 1.35l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2z"/></svg></div>
+            <div class="side-icon" data-tab="clans"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
+            <div class="side-icon" data-tab="profile"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+            <div class="side-icon" data-tab="settings"><svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58z"/></svg></div>
+        </div>
+        <div id="profile-panel">
+            <div id="profile-card">
+                <div id="avatar-wrap">
+                    <div id="avatar" title="Сменить аватар"><div class="avatar-default"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div></div>
+                    <div id="profile-info">
+                        <div id="p-id">ID <span class="v" id="p-id-val">73396228</span></div>
+                        <div id="p-name">Игрок</div>
+                    </div>
+                </div>
+                <div id="p-level"><span class="lv-badge">LVL 1</span><div class="lv-bar"><div class="lv-bar-fill"></div></div></div>
+                <div id="p-exp">0 / 100 EXP</div>
+                <div id="p-lock"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2z"/></svg><span>Рейтинг недоступен</span></div>
+            </div>
+        </div>
+        <div id="center-panel">
+            <div class="wheat"><svg viewBox="0 0 24 24"><path d="M12 2C10 2 8.5 3.5 8.5 5.5c0 .5.1 1 .3 1.4-.3-.1-.6-.1-.9-.1C6 6.8 4.5 8.3 4.5 10.2c0 .6.2 1.2.5 1.7-.4-.2-.9-.3-1.4-.3-1.9 0-3.4 1.5-3.4 3.4 0 1.3.7 2.4 1.8 3-.2.4-.3.9-.3 1.4 0 1.9 1.5 3.4 3.4 3.4.5 0 1-.1 1.4-.3-.2.4-.3.9-.3 1.4 0 1.9 1.5 3.4 3.4 3.4s3.4-1.5 3.4-3.4c0-.5-.1-1-.3-1.4.4.2.9.3 1.4.3 1.9 0 3.4-1.5 3.4-3.4 0-.5-.1-1-.3-1.4 1.1-.6 1.8-1.7 1.8-3 0-1.9-1.5-3.4-3.4-3.4-.5 0-1 .1-1.4.3.3-.5.5-1.1.5-1.7 0-1.9-1.5-3.4-3.4-3.4-.3 0-.6 0-.9.1.2-.4.3-.9.3-1.4C13.5 3.5 12 2 12 2z"/></svg></div>
+            <div class="rewards-title">COMPETITIVE REWARDS</div>
+            <div class="rewards-sub">Новые наборы в честь выхода рейтинговой игры</div>
+            <button id="get-reward-btn">ПОЛУЧИТЬ</button>
+        </div>
+        <div id="bp-panel">
+            <div id="bp-header">
+                <div class="bp-logo"><span class="z">Z</span>5</div>
+                <div class="bp-label"><div class="big">PROJECT</div><div>НЕДЕЛЯ 6</div></div>
+                <div class="bp-label"><div class="big">1</div><div>УРОВЕНЬ</div></div>
+            </div>
+            <div id="bp-tabs"><div class="bp-tab active">FREE PASS</div><div class="bp-tab">GOLD PASS</div></div>
+            <div id="bp-next">Следующая награда:</div>
+            <div id="bp-rewards">
+                <div class="bp-reward"><div class="r-icon"><svg viewBox="0 0 24 24"><path d="M20 6h-2.18c.11-.31.18-.65.18-1 0-1.66-1.34-3-3-3-1.05 0-1.96.54-2.5 1.35l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2z"/></svg></div><div class="r-label">FREE</div></div>
+                <div class="bp-reward locked"><div class="lock-icon"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2z"/></svg></div><div class="r-icon"><svg viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2z"/></svg></div><div class="r-label">GOLD</div></div>
+                <div class="bp-reward locked"><div class="lock-icon"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2z"/></svg></div><div class="r-icon"><svg viewBox="0 0 24 24"><path d="M12 2l-5.5 9h11z"/><circle cx="17.5" cy="17.5" r="4.5"/><path d="M3 13.5h8v8H3z"/></svg></div><div class="r-label">Z5</div></div>
+            </div>
+        </div>
+    </div>
+    <div id="menu-bottom"><button id="play-btn">ИГРАТЬ</button></div>
+</div>
+
+<div id="team-select">
+    <h2>ВЫБЕРИ СТОРОНУ</h2>
+    <div class="team-btns">
+        <div class="team-btn t" data-team="T">
+            <div class="tb-icon"><svg viewBox="0 0 24 24" style="color:#fa0"><path fill="currentColor" d="M12 2C8 2 5 5 5 9c0 2 1 4 2 5l-1 8h12l-1-8c1-1 2-3 2-5 0-4-3-7-7-7z"/></svg></div>
+            <div class="tb-name">TERRORIST</div>
+            <div class="tb-desc">Можешь устанавливать бомбу. Есть плент.</div>
+        </div>
+        <div class="team-btn ct" data-team="CT">
+            <div class="tb-icon"><svg viewBox="0 0 24 24" style="color:#4af"><path fill="currentColor" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
+            <div class="tb-name">COUNTER-TERRORIST</div>
+            <div class="tb-desc">Не можешь ставить бомбу. Можешь разминировать.</div>
+        </div>
+    </div>
+    <button id="back-team" style="padding:10px 30px;background:#222;color:#fa0;border:2px solid #fa0;border-radius:8px;font-weight:bold;letter-spacing:2px;cursor:pointer;font-size:12px">← НАЗАД</button>
+</div>
+
+<div id="map-select"><h2>ВЫБЕРИ КАРТУ</h2><div id="map-select-list"></div><button id="back-to-menu">← НАЗАД</button></div>
+
+<div id="hud">
+    <div id="crosshair"></div><div id="hit-marker"></div><div id="hit-flash"></div>
+    <div id="reload-msg">ПЕРЕЗАРЯДКА...</div>
+    <div id="score-top"><div class="lbl">УБИЙСТВА</div><div class="val" id="score">0</div><div class="map" id="map-name">SANDSTONE</div></div>
+    <div id="team-badge" class="t">T</div>
+    <div id="health-bar"><div id="health-fill"></div></div>
+    <div id="ammo-hud"><div class="wname" id="weapon-name">AKR-12</div><div class="ammo" id="ammo">30<span class="res">/90</span></div></div>
+    <div id="minimap"><canvas id="minimap-canvas" width="88" height="88"></canvas></div>
+    <div id="killfeed"></div>
+    <div id="debug-hud" style="display:none">JOY: --</div>
+    <div id="fire-zone"></div>
+    <div id="joy-move"><div id="joy-move-knob"></div></div>
+    <div class="ctrl-btn small" id="btn-pause"><svg viewBox="0 0 24 24"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg></div>
+    <div class="ctrl-btn small" id="btn-shop-hud"><svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg></div>
+    <div class="ctrl-btn small" id="btn-fullscreen"><svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></div>
+    <div class="ctrl-btn big" id="btn-fire"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3"/></svg></div>
+    <div class="ctrl-btn medium" id="btn-aim"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/></svg></div>
+    <div class="ctrl-btn medium" id="btn-jump"><svg viewBox="0 0 24 24"><path d="M12 4l-8 8h5v8h6v-8h5z"/></svg></div>
+    <div class="ctrl-btn medium" id="btn-crouch">
+        <svg id="crouch-icon-down" viewBox="0 0 24 24"><path d="M12 20l8-8h-5V4H9v8H4z"/></svg>
+        <svg id="crouch-icon-up" viewBox="0 0 24 24" style="display:none"><path d="M12 4l-8 8h5v8h6v-8h5z"/></svg>
+    </div>
+    <div class="ctrl-btn small" id="btn-reload"><svg viewBox="0 0 24 24"><path d="M17.65 6.35A8 8 0 1 0 19.73 14h-2.08A6 6 0 1 1 12 6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg></div>
+    <div class="ctrl-btn small" id="btn-swap"><svg viewBox="0 0 24 24"><path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM7 7l1.41 1.41L5.83 11H16v2H5.83l2.58 2.58L7 17l-5-5z"/></svg></div>
+    <div class="ctrl-btn small" id="btn-plant" style="font-size:8px">PLANT</div>
+    <div class="ctrl-btn small" id="btn-defuse" style="font-size:8px">DEFUSE</div>
+    <div id="paused-msg">
+        <div class="pause-title">ПАУЗА</div>
+        <button id="btn-resume">▶ ПРОДОЛЖИТЬ</button>
+        <button id="btn-settings-pause">⚙ НАСТРОЙКИ</button>
+        <button id="btn-leave">✕ ПОКИНУТЬ ИГРУ</button>
+    </div>
+    <div id="plant-progress">
+        <div class="pp-title" id="pp-title">УСТАНОВКА БОМБЫ</div>
+        <div class="pp-bar"><div class="pp-fill" id="pp-fill"></div></div>
+    </div>
+</div>
+
+<div id="weapon-wheel">
+    <div class="wheel-bg"></div>
+    <div class="wheel-sector sector-top" data-slot="bomb">
+        <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C8 2 5 5 5 9c0 2 1 4 2 5l-1 8h12l-1-8c1-1 2-3 2-5 0-4-3-7-7-7z"/></svg>
+        <div class="ws-label">БОМБА</div>
+        <div class="ws-name" id="ws-bomb-name">ПАЧКА</div>
+    </div>
+    <div class="wheel-sector sector-bottom" data-slot="primary">
+        <svg viewBox="0 0 24 24"><path fill="currentColor" d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2z"/></svg>
+        <div class="ws-label">ОСНОВНОЕ</div>
+        <div class="ws-name" id="ws-primary-name">—</div>
+    </div>
+    <div class="wheel-sector sector-left" data-slot="knife">
+        <svg viewBox="0 0 24 24"><path fill="currentColor" d="M7 21l3-3-3-3-3 3zM14 3l-8 8 2 2 8-8zM20 3l-4 4 2 2 4-4z"/></svg>
+        <div class="ws-label">НОЖ</div>
+        <div class="ws-name" id="ws-knife-name">НОЖ</div>
+    </div>
+    <div class="wheel-sector sector-right" data-slot="pistol">
+        <svg viewBox="0 0 24 24"><path fill="currentColor" d="M18 4H6c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h2l2 4h2l-1-4h6c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2z"/></svg>
+        <div class="ws-label">ПИСТОЛЕТ</div>
+        <div class="ws-name" id="ws-pistol-name">—</div>
+    </div>
+    <div class="wheel-hint">Тяни палец в сторону оружия</div>
+</div>
+
+<div id="awp-scope">
+    <div class="scope-circle"></div>
+    <div class="scope-cross-h"></div>
+    <div class="scope-cross-v"></div>
+    <div class="scope-mark"></div>
+    <div class="scope-ticks"></div>
+    <div class="awp-close" id="awp-close-btn"><svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></div>
+    <div class="awp-hint">СНАЙПЕРСКИЙ ПРИЦЕЛ • AWM</div>
+</div>
+
+<div id="match-end">
+    <div class="me-title" id="me-title">ПОБЕДА</div>
+    <div class="me-stats">
+        <div class="me-row"><span>Убийств</span><span id="me-kills">0</span></div>
+        <div class="me-row"><span>Смертей</span><span id="me-deaths">0</span></div>
+        <div class="me-row"><span>Заработано</span><span id="me-money">0</span> $</div>
+        <div class="me-row"><span>Всего убийств</span><span id="me-total">30</span></div>
+    </div>
+    <div class="me-btns">
+        <button class="primary" id="me-again">ИГРАТЬ СНОВА</button>
+        <button class="secondary" id="me-menu">В МЕНЮ</button>
+    </div>
+</div>
+
+<div class="modal" id="modal-alert">
+    <div class="modal-box">
+        <div class="modal-title" id="modal-alert-title">УВЕДОМЛЕНИЕ</div>
+        <div class="modal-text" id="modal-alert-text"></div>
+        <div class="modal-btns"><button class="btn-primary" id="modal-alert-ok">OK</button></div>
+    </div>
+</div>
+<div class="modal" id="modal-confirm">
+    <div class="modal-box">
+        <div class="modal-title" id="modal-confirm-title">ПОДТВЕРЖДЕНИЕ</div>
+        <div class="modal-text" id="modal-confirm-text"></div>
+        <div class="modal-btns">
+            <button class="btn-secondary" id="modal-confirm-cancel">ОТМЕНА</button>
+            <button class="btn-danger" id="modal-confirm-ok">OK</button>
+        </div>
+    </div>
+</div>
+<div class="modal" id="modal-prompt">
+    <div class="modal-box">
+        <div class="modal-title" id="modal-prompt-title">ВВОД</div>
+        <div class="modal-text" id="modal-prompt-text"></div>
+        <input type="text" class="modal-input" id="modal-prompt-input" maxlength="30">
+        <div class="modal-btns">
+            <button class="btn-secondary" id="modal-prompt-cancel">ОТМЕНА</button>
+            <button class="btn-primary" id="modal-prompt-ok">OK</button>
+        </div>
+    </div>
+</div>
+<div class="modal" id="modal-skin">
+    <div class="modal-box">
+        <div class="modal-title">УПРАВЛЕНИЕ СКИНОМ</div>
+        <div class="skin-preview" id="skin-preview-icon"></div>
+        <div class="skin-info">
+            <div class="sname" id="skin-modal-name"></div>
+            <div class="sweapon" id="skin-modal-weapon"></div>
+            <div class="srarity" id="skin-modal-rarity"></div>
+            <div class="sprice" id="skin-modal-price"></div>
+        </div>
+        <div class="modal-btns">
+            <button class="btn-success" id="skin-modal-equip">ВЫБРАТЬ</button>
+            <button class="btn-danger" id="skin-modal-sell">ПРОДАТЬ</button>
+            <button class="btn-secondary" id="skin-modal-cancel">ОТМЕНА</button>
+        </div>
+    </div>
+</div>
+
+<div class="overlay" id="shop-overlay">
+    <div class="overlay-close" data-close="shop-overlay"><svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></div>
+    <h2>🛒 МАГАЗИН ОРУЖИЯ</h2>
+    <div style="text-align:center;color:#fa0;font-size:12px;margin-bottom:12px">💰 Баланс: <span id="shop-balance">5000</span> $</div>
+    <div class="shop-grid" id="shop-grid"></div>
+</div>
+
+<div class="overlay" id="cases-overlay">
+    <div class="overlay-close" data-close="cases-overlay"><svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></div>
+    <h2>🎁 КЕЙСЫ</h2>
+    <div style="text-align:center;color:#fa0;font-size:12px;margin-bottom:12px">💰 Баланс: <span id="cases-balance">5000</span> $</div>
+    <div class="cases-grid" id="cases-grid"></div>
+</div>
+
+<div class="overlay" id="inventory-overlay">
+    <div class="overlay-close" data-close="inventory-overlay"><svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></div>
+    <h2>🎒 ИНВЕНТАРЬ</h2>
+    <div class="inv-tabs">
+        <div class="inv-tab active" data-filter="all">ВСЕ</div>
+        <div class="inv-tab" data-filter="common">ОБЫЧНЫЕ</div>
+        <div class="inv-tab" data-filter="rare">РЕДКИЕ</div>
+        <div class="inv-tab" data-filter="epic">ЭПИЧЕСКИЕ</div>
+        <div class="inv-tab" data-filter="legendary">ЛЕГЕНДАРНЫЕ</div>
+    </div>
+    <div class="inventory-grid" id="inventory-grid"></div>
+</div>
+
+<div class="overlay" id="settings-overlay">
+    <div class="overlay-close" data-close="settings-overlay"><svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></div>
+    <h2>⚙️ НАСТРОЙКИ</h2>
+    <div class="settings-section"><h4>🎮 Игра</h4>
+        <div class="setting-row"><label>Чувствительность</label><input type="range" id="set-sens" min="1" max="20" value="8"><span class="val" id="set-sens-val">8</span></div>
+        <div class="setting-row"><label>Звук</label><input type="checkbox" id="set-sound" checked></div>
+        <div class="setting-row"><label>Вибрация</label><input type="checkbox" id="set-vibe" checked></div>
+        <div class="setting-row"><label>Показывать координаты</label><input type="checkbox" id="set-debug"></div>
+        <div class="setting-row"><label>Дать ботам оружие</label><input type="checkbox" id="set-bots-weapons"></div>
+    </div>
+    <div class="settings-section"><h4>🎯 Зона стрельбы</h4>
+        <div class="setting-row"><label>Ширина</label><input type="range" id="set-fz-w" min="40" max="200" value="100"><span class="val" id="set-fz-w-val">100</span></div>
+        <div class="setting-row"><label>Высота</label><input type="range" id="set-fz-h" min="40" max="200" value="100"><span class="val" id="set-fz-h-val">100</span></div>
+    </div>
+    <div class="settings-section"><h4>🎯 Редактор прицела</h4>
+        <div class="crosshair-preview" id="ch-preview">
+            <div class="ch-h" style="width:2px;height:22px"></div>
+            <div class="ch-v" style="width:22px;height:2px"></div>
+        </div>
+        <div class="setting-row"><label>Цвет прицела</label><select id="ch-color">
+            <option value="#fa0">Оранжевый</option>
+            <option value="#4f4">Зелёный</option>
+            <option value="#f22">Красный</option>
+            <option value="#4af">Голубой</option>
+            <option value="#a4f">Фиолетовый</option>
+            <option value="#fff">Белый</option>
+            <option value="#000">Чёрный</option>
+        </select></div>
+        <div class="setting-row"><label>Толщина</label><input type="range" id="ch-thickness" min="1" max="6" value="2"><span class="val" id="ch-thickness-val">2</span></div>
+        <div class="setting-row"><label>Длина</label><input type="range" id="ch-length" min="10" max="40" value="22"><span class="val" id="ch-length-val">22</span></div>
+        <div class="setting-row"><label>Стиль</label><select id="ch-style">
+            <option value="cross">Крест</option>
+            <option value="dot">Точка</option>
+            <option value="cross-dot">Крест + точка</option>
+            <option value="circle">Круг</option>
+        </select></div>
+    </div>
+    <div class="settings-section"><h4>🎯 Кнопки управления</h4>
+        <div class="setting-row"><label>Размер кнопок</label><input type="range" id="set-btnsize" min="50" max="150" value="100"><span class="val" id="set-btnsize-val">100%</span></div>
+        <div class="setting-row"><label>Прозрачность</label><input type="range" id="set-btnopacity" min="30" max="100" value="72"><span class="val" id="set-btnopacity-val">72%</span></div>
+        <div class="setting-row"><button id="btn-open-editor" style="width:100%;padding:10px;background:linear-gradient(135deg,#fa0,#f80);color:#111;border:none;border-radius:6px;font-weight:bold;letter-spacing:2px;cursor:pointer">📐 НАСТРОИТЬ ПОЛОЖЕНИЕ</button></div>
+        <div class="setting-row"><button id="btn-reset-layout" style="width:100%;padding:8px;background:#222;color:#fa0;border:1px solid #fa0;border-radius:6px;font-size:11px;cursor:pointer">↺ СБРОСИТЬ</button></div>
+    </div>
+    <div class="settings-section"><h4>💾 Данные</h4>
+        <div class="setting-row"><button id="btn-reset-data" style="width:100%;padding:8px;background:#a22;color:#fff;border:none;border-radius:6px;font-size:11px;cursor:pointer">🗑️ СБРОСИТЬ ВСЁ</button></div>
+    </div>
+</div>
+
+<div id="button-editor"><div class="editor-hint">Тапни кнопку чтобы выбрать • Тяни для движения</div></div>
+
+<div class="overlay" id="clan-overlay">
+    <div class="overlay-close" data-close="clan-overlay"><svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></div>
+    <h2>🛡️ КЛАНЫ</h2>
+    <div class="clan-create-form">
+        <input type="text" id="clan-name-input" placeholder="Название клана (3-20)" maxlength="20">
+        <input type="text" id="clan-tag-input" placeholder="Тег (2-5)" maxlength="5" style="text-transform:uppercase">
+        <button id="btn-create-clan">➕ СОЗДАТЬ КЛАН</button>
+    </div>
+    <div class="clans-grid" id="clans-grid"></div>
+</div>
+
+<div id="case-roulette">
+    <h3 id="roulette-title">ОТКРЫТИЕ</h3>
+    <div id="roulette-wrap"><div id="roulette-pointer"></div><div id="roulette-strip"></div></div>
+    <div id="case-result">
+        <div class="result-icon"></div>
+        <div class="result-name"></div>
+        <div class="result-rarity"></div>
+        <button id="btn-close-roulette">OK</button>
+    </div>
+</div>
+
+<input type="file" id="avatar-input" accept="image/*" style="display:none">
+
+<script src="https://unpkg.com/three@0.132.2/build/three.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/profile.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/map.js"></script>
+<script src="js/weapons.js"></script>
+<script src="js/enemies.js"></script>
+<script src="js/player.js"></script>
+<script src="js/bomb.js"></script>
+<script src="js/controls.js"></script>
+<script src="js/main.js"></script>
+</body>
+  </html>
